@@ -25,7 +25,6 @@ class PerformanceController extends Controller
     {
         $performances = Performance::all();
         return view('performances', ['performances' => $performances]);
-
     }
 
     public function get($id)

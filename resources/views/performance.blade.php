@@ -83,15 +83,8 @@
 
         <div class="card card-style">
             <iframe class="map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBrQsfEb0xqDCxuElEgT9m-HmpwzO4_bAs&q={{$performance->stage->lat}},{{$performance->stage->long}}&zoom=16&maptype=satellite" allowfullscreen></iframe>
-        </div>
-
-        
-        
-        
+        </div>            
     </div>  
-
-       
-
 
     @endsection
     

@@ -20,7 +20,10 @@ class Performance extends Model
     {
         return $this->hasMany(Like::class);
     }
-
+    public function isAuthUserLikedPost(){
+        return $this->likes()->where('user_id',  auth()->id())->exists();
+     }
+     
     public function performer()
     {
         return $this->belongsTo(Performer::class);

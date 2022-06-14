@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\PerformanceController;
+use App\Http\Controllers\FaqController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +22,18 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:Admin']], function () {
-        Route::get('/performances', [App\Http\Controllers\PerformanceController::class, 'getAll']);
-        Route::get('/performance/{id}', [App\Http\Controllers\PerformanceController::class, 'get']);
+        Route::get('/performances', [PerformanceController::class, 'getAll']);
+        Route::get('/performance/{id}', [PerformanceController::class, 'get']);
         Route::get('/', function () {
             return view('index');
         });
+        
+        Route::get('/like-performance/{id}',[LikeController::class,'likePerformance'])->name('like.performance');
+        Route::get('/unlike-performance/{id}',[LikeController::class,'unlikePerformance'])->name('unlike.performance');
+
+        Route::get('/faqs',[FaqController::class,'getAll']);
     });
+   
 });
 
 
