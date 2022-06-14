@@ -28,10 +28,9 @@
                     <a href="#" data-bs-toggle="collapse" data-bs-target="#tab-{{$key+1}}">{{ $stage->name }}</a>
                 @endforeach
             </div>
-            
-            
                     <div data-bs-parent="#tab-group-1" class="collapse pt-3 show" id="tab-O">
                         @foreach($performances as $performance)
+                            @if($performance->isAuthUserLikedPost())
                             <div class="card card-style">
                                 <div data-card-height="200" class="card shadow-l mb-0" 
                                 @if($performance->performer->photos->count())
@@ -62,12 +61,14 @@
                                     <a href="/performance/{{ $performance->id }}" class="float-end btn bg-highlight rounded-xl shadow-xl text-uppercase font-900 font-11 mt-2">More Info</a>
                                 </div>
                             </div>
+                            @endif
                         @endforeach
                     </div>
                 @foreach($festival->stages() as $key => $stage)
                     <div data-bs-parent="#tab-group-1" class="collapse pt-3" id="tab-{{$key+1}}">
               
                     @foreach($performances as $performance)
+                    @if($performance->isAuthUserLikedPost())
                         @if($performance->stage->name == $stage->name)
                             <div class="card card-style">
                                 <div data-card-height="200" class="card shadow-l mb-0" 
@@ -100,6 +101,7 @@
                                 </div>
                             </div>
                         @endif
+                    @endif
                     @endforeach
                     </div>
             @endforeach

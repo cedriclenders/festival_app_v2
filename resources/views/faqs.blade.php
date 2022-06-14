@@ -9,7 +9,7 @@
     <div class="page-content header-clear-medium">
         <div class="search-box search-header bg-theme card-style me-3 ms-3">
             <i class="fa fa-search"></i>
-            <input type="text" id="faqSearch" onkeyup="myFunction()" class="border-0" placeholder="What are you looking for? ">
+            <input type="text" id="faqSearch" onkeyup="faqFilter()" class="border-0" placeholder="What are you looking for? ">
             <a href="#" class="clear-search disabled mt-0"><i class="fa fa-times color-red-dark"></i></a>
         </div>
 
@@ -40,7 +40,7 @@
 
        
     <script>
-        function myFunction() {
+        function faqFilter() {
             var input, filter, wrapper, question, a, i, txtValue;
             input = document.getElementById("faqSearch");
             filter = input.value.toUpperCase();

@@ -20,6 +20,7 @@ class Performance extends Model
     {
         return $this->hasMany(Like::class);
     }
+
     public function isAuthUserLikedPost(){
         return $this->likes()->where('user_id',  auth()->id())->exists();
      }
@@ -38,4 +39,5 @@ class Performance extends Model
     {
         return $this->belongsTo(Timeslot::class);
     }
+
 }

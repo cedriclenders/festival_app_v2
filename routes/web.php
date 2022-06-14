@@ -32,7 +32,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/unlike-performance/{id}',[LikeController::class,'unlikePerformance'])->name('unlike.performance');
 
         Route::get('/faqs',[FaqController::class,'getAll']);
+
+        Route::get('/likes', [PerformanceController::class, 'getAllLikes']);
     });
+
    
 });
 

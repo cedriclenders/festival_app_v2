@@ -28,8 +28,5 @@ class Performer extends Model
     {
         return $this->hasMany(Photo::class);
     }
-
-
-   
     
 }

@@ -24,6 +24,7 @@ class PerformanceController extends Controller
     public function getAll()
     {
         $performances = Performance::all();
+        
         return view('performances', ['performances' => $performances]);
     }
 
@@ -32,6 +33,12 @@ class PerformanceController extends Controller
         $performance = Performance::find($id);
         return view('performance')->with('performance', $performance);
     }
-    
+
+    public function getAllLikes()
+    {
+        $performances = Performance::all();
+        
+        return view('likes', ['performances' => $performances]);
+    }
     
 }
