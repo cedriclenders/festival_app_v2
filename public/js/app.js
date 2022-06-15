@@ -55,3 +55,19 @@ function faqFilter() {
         }
     }
 }
+
+$("#formDaysFilter").change(function(){ 
+    let amountOfDivs = $(this).children("option").length;
+    let indexDay = $(this).children("option:selected").val();
+    for (let i= 0; i < amountOfDivs; i++) {
+        if(i == indexDay)
+        {
+            $("#festival-wrapper-day-"+i).show();
+        }
+        else
+        {
+            $("#festival-wrapper-day-"+i).hide();
+        } 
+    }   
+});
+

@@ -23,45 +23,16 @@
     <div class="card card-style bg-theme pb-0">
         <div id="tab-group-1">
             <div class="tab-controls tabs-small" data-highlight="bg-blue-dark">
-                {{-- <a href="#" data-active data-bs-toggle="collapse" data-bs-target="#tab-O">All</a> --}}
                 @foreach($festival->stages() as $key => $stage)
+                
+                @if($key == 0)
+                    <a href="#" data-bs-toggle="collapse" data-bs-target="#tab-{{$key}}" class="bg-blue-dark no-click">{{ $stage->name }}</a>
+                @else
                     <a href="#" data-bs-toggle="collapse" data-bs-target="#tab-{{$key}}">{{ $stage->name }}</a>
+                @endif
+                    
                 @endforeach
             </div>
-                    {{-- <div data-bs-parent="#tab-group-1" class="collapse pt-3 show" id="tab-O">
-                        @foreach($performances as $performance)
-                            <div class="card card-style">
-                                <div data-card-height="200" class="card shadow-l mb-0" 
-                                @if($performance->performer->photos->count())
-                                style="background-image: url('{{ config('admin.admin_url') }}{{ $performance->performer->photos->first()->path }}')"
-                                @endif>
-                                    
-                                    <div class="card-top m-3">
-                                        @if($performance->isAuthUserLikedPost())
-                                        <div data-performance="{{$performance->id}}" id="saveDislike" class="float-end"><i class="fa fa-heart fa-3x color-red-dark"></i></div>
-                                        @else
-                                        <div data-performance="{{$performance->id}}" id="saveLike" class="float-end"><i class="far fa-heart fa-3x color-red-dark" ></i></div>
-                                        @endif
-                                    </div>  
-                                    
-                                    <div class="card-bottom ms-3">
-                                        
-                                        <p class="color-white font-5 opacity-80 mb-n1"><i class="far fa-calendar"></i> {{$performance->timeslot->startDate()}} <i class="ms-3 far fa-clock"></i> {{$performance->timeslot->startTime()}} - {{$performance->timeslot->endTime()}}</p>
-                                        <p class="color-white font-5 opacity-80 mb-2"><i class="fa fa-map-marker-alt"></i> {{$performance->stage->name}} </p>
-                                    </div>
-                                    <div class="card-overlay bg-gradient opacity-90 rounded-0"></div>
-                                </div>
-                            
-                                <div class="content mb-0">
-                                    <div class="float-start">
-                                        <h2 class="mb-n1">{{$performance->performer->name}}</h2>
-                                        <p class="font-3 mb-2 pb-1"><i class="fa fa-music me-2"></i> {{$performance->performer->genre->name}}</p>
-                                    </div>
-                                    <a href="/performance/{{ $performance->id }}" class="float-end btn bg-highlight rounded-xl shadow-xl text-uppercase font-900 font-11 mt-2">More Info</a>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div> --}}
                 @foreach($festival->stages() as $key => $stage)
                 @if($key == 0)
                     <div data-bs-parent="#tab-group-1" class="collapse pt-3 show" id="tab-{{$key}}">
@@ -79,9 +50,9 @@
                                     
                                     <div class="card-top m-3">
                                         @if($performance->isAuthUserLikedPost())
-                                        <div data-performance="{{$performance->id}}" id="saveDislike" class="float-end"><i class="fa fa-heart fa-3x color-red-dark"></i></div>
+                                            <div data-performance="{{$performance->id}}" id="saveDislike" class="float-end"><i class="fa fa-heart fa-3x color-red-dark"></i></div>
                                         @else
-                                        <div data-performance="{{$performance->id}}" id="saveLike" class="float-end"><i class="far fa-heart fa-3x color-red-dark" ></i></div>
+                                            <div data-performance="{{$performance->id}}" id="saveLike" class="float-end"><i class="far fa-heart fa-3x color-red-dark" ></i></div>
                                         @endif
                                     </div>  
                                     
@@ -109,49 +80,4 @@
     </div>
     @endif 
 </div>   
-
-<script>
-    $("#formDaysFilter").val($("#formDaysFilter option:first").val());
-    
-    $(document).on('click','#saveLike',function(){
-    var _performance=$(this).data('performance');
-    var vm=$(this);
-    // Run Ajax
-    $.ajax({
-        url:"/like-performance/"+_performance,
-        type:"GET",
-        dataType:'json',
-        data:{
-            _token:"{{ csrf_token() }}"
-        },  
-        complete: function() {
-            vm.attr('data-type', 'dislike');
-            vm.attr('id', 'saveDislike');
-            vm.children().attr('class', 'fa fa-heart fa-3x color-red-dark');
-        }
-    });
-});
-
-    $(document).on('click','#saveDislike',function(){
-    var _performance=$(this).data('performance');
-    var vm=$(this);
-    // Run Ajax
-    $.ajax({
-        url:"/unlike-performance/"+_performance,
-        type:"GET",
-        dataType:'json',
-        data:{
-            _token:"{{ csrf_token() }}"
-        },  
-        complete: function() {
-            vm.attr('data-type', 'like');
-            vm.attr('id', 'saveLike');
-            
-            vm.children().attr('class', 'far fa-heart fa-3x color-red-dark').fadeIn('slow');
-        }
-    });
-});
-    
-
-</script>
 @endsection
