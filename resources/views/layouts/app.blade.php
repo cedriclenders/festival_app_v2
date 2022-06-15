@@ -52,7 +52,11 @@
 
 </div>  
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script>
+        localStorage.setItem("vapid_public_key", "{{ env('VAPID_PUBLIC_KEY') }}"); 
+    </script>
     <script type="text/javascript" src="{{ asset('js/costum.js') }}"></script>
+    
 </body>
 
 </html>

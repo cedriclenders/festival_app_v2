@@ -3,6 +3,7 @@
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PerformanceController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\PushController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/faqs',[FaqController::class,'getAll']);
 
         Route::get('/likes', [PerformanceController::class, 'getAllLikes']);
+
+        Route::post('/push', [PushController::class,'store']);
+        Route::get('/push', [PushController::class,'push'])->name('push');
     });
 
    
