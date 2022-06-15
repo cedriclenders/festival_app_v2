@@ -21,9 +21,7 @@
                 </div>
             </div>
         </div> 
-        <div class="card card-style">
-            <a href="{{route('push')}}" class="btn btn-outline-primary btn-block">Make a Push Notification!</a>
-         </div>
+
         <div class="card card-style">
             <div class="content">
                 {!! $festival->description !!}

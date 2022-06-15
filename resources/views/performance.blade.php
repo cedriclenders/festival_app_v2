@@ -6,7 +6,6 @@
         <a href="#" data-toggle-theme class="header-icon header-icon-4"><i class="fas fa-lightbulb"></i></a>
     </div>
     <div class="page-content header-clear-medium">
-
         <div class="splide single-slider slider-no-arrows slider-no-dots" id="single-slider-home">
             <div class="splide__track">
                 <div class="splide__list">
@@ -86,12 +85,10 @@
                 </div>
             </div>
         </div>
-
         <div class="card card-style">
             <iframe class="map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBrQsfEb0xqDCxuElEgT9m-HmpwzO4_bAs&q={{$performance->stage->lat}},{{$performance->stage->long}}&zoom=16&maptype=satellite" allowfullscreen></iframe>
         </div>            
     </div>  
-
-    @endsection
+@endsection
     
 

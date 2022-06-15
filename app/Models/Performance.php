@@ -21,6 +21,11 @@ class Performance extends Model
         return $this->hasMany(Like::class);
     }
 
+    public function likers()
+    {
+        return $this->belongsToMany(User::class, 'likes', 'performance_id');
+    }
+
     public function isAuthUserLikedPost(){
         return $this->likes()->where('user_id',  auth()->id())->exists();
      }
@@ -38,6 +43,26 @@ class Performance extends Model
     public function timeslot()
     {
         return $this->belongsTo(Timeslot::class);
+    }
+    
+    public function isAlmostStarting()
+    {
+        return now()->addDays(14)->greaterThan($this->timeslot->start_datetime);
+    }
+
+    public function wasAlreadySentPerformanceStartinSoon()
+    {
+        if ($this->attributes['performance_starting_notification_sent_at'])
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public function rememberHasBeenSentPerformanceStartingSoon()
+    {
+         $this->attributes['performance_starting_notification_sent_at'] = now();
+         $this->save();
     }
 
 }
