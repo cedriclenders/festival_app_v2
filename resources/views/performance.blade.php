@@ -5,8 +5,8 @@
         <a class="header-title">{{$performance->performer->name}}</a>
         <a href="#" data-toggle-theme class="header-icon header-icon-4"><i class="fas fa-lightbulb"></i></a>
     </div>
-
     <div class="page-content header-clear-medium">
+
         <div class="splide single-slider slider-no-arrows slider-no-dots" id="single-slider-home">
             <div class="splide__track">
                 <div class="splide__list">
@@ -21,16 +21,22 @@
                 </div>
             </div>
         </div> 
-
         <div class="card card-style">
             <div class="content">
                 {!! $performance->performer->description !!}
-            </div>
+            </div>   
         </div>
 
         <div class="card card-style">
             <div class="content">          
                 <h2 class="font-700">Info</h2>
+                <div class="card-top m-3">
+                    @if($performance->isAuthUserLikedPost())
+                        <div data-performance="{{$performance->id}}" id="saveDislike" class="float-end"><i class="fa fa-heart fa-3x color-red-dark"></i></div>
+                    @else
+                        <div data-performance="{{$performance->id}}" id="saveLike" class="float-end"><i class="far fa-heart fa-3x color-red-dark" ></i></div>
+                    @endif
+                </div>  
                 <div class="row mb-0">
                     <div class="col-6">
                         <div class="d-flex">

@@ -17,8 +17,8 @@ class LikeController extends Controller
         $like->performance_id = $id;
         $like->user_id = Auth::user()->id;
         $like->save();
-
-        return redirect('/performances')->with('message','Post Like successfully!');
+        return response()->json(array('success' => true, 'like' => $like));
+        //return redirect('/performances')->with('message','Post Like successfully!');
     }
 
     public function unlikePerformance($id)

@@ -35,30 +35,8 @@
             </div>
         </div>
     </div>  
+ 
 
-    
-
-       
-    <script>
-        function faqFilter() {
-            var input, filter, wrapper, question, a, i, txtValue;
-            input = document.getElementById("faqSearch");
-            filter = input.value.toUpperCase();
-            wrapper = document.getElementById("questions-questionst");
-            faq = wrapper.getElementsByClassName("question");
-            for (i = 0; i < faq.length; i++) {
-                question = faq[i].getElementsByTagName("h5")[0];
-                answer = faq[i].getElementsByClassName("collapse")[0];
-                txtValue = question.textContent || question.innerText;
-                txtValue += answer.textContent || answer.innerText
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    faq[i].style.display = "";
-                } else {
-                    faq[i].style.display = "none";
-                }
-            }
-        }
-    </script>
 
     @endsection
     

@@ -957,6 +957,10 @@ body {
   border-radius: 10px !important;
 }
 
+.fit  {
+  object-fit: cover;
+}
+
 .rounded-m {
   border-radius: 15px !important;
 }
