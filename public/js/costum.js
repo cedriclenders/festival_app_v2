@@ -1537,21 +1537,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
 
     //End of Init Template
-    if(isAJAX === true){
-        if(window.location.protocol !== "file:"){
-            const options = {
-                containers: ["#page"],
-                cache:false,
-                animateHistoryBrowsing: false,
-                plugins: [
-                    new SwupPreloadPlugin()
-                ],
-                linkSelector:'a:not(.external-link):not(.default-link):not([href^="https"]):not([href^="http"]):not([data-gallery])'
-            };
-            const swup = new Swup(options);
-            document.addEventListener('swup:pageView',(e) => { init_template(); })
-        }
-    }
+   
 
     init_template();
     
