@@ -30,17 +30,17 @@
                 <div class="tab-controls tabs-small" data-highlight="bg-blue-dark">
                     @foreach($festival->stages() as $key => $stage)
                         @if($key == 0)
-                            <a href="#" data-bs-toggle="collapse" data-bs-target="#tab-{{$key}}" class="bg-blue-dark no-click">{{ $stage->name }}</a>
+                            <a href="#" data-bs-toggle="collapse" data-bs-target="#tab-{{$key1}}-{{$key}}" class="bg-blue-dark no-click">{{ $stage->name }}</a>
                         @else
-                            <a href="#" data-bs-toggle="collapse" data-bs-target="#tab-{{$key}}">{{ $stage->name }}</a>
+                            <a href="#" data-bs-toggle="collapse" data-bs-target="#tab-{{$key1}}-{{$key}}">{{ $stage->name }}</a>
                         @endif
                     @endforeach
                 </div>
                     @foreach($festival->stages() as $key => $stage)
                     @if($key == 0)
-                        <div data-bs-parent="#tab-group-{{$key1}}" class="collapse pt-3 show" id="tab-{{$key}}">
+                        <div data-bs-parent="#tab-group-{{$key1}}" class="collapse pt-3 show" id="tab-{{$key1}}-{{$key}}">
                     @else
-                        <div data-bs-parent="#tab-group-{{$key1}}" class="collapse pt-3" id="tab-{{$key}}">
+                        <div data-bs-parent="#tab-group-{{$key1}}" class="collapse pt-3" id="tab-{{$key1}}-{{$key}}">
                     @endif
                     
                         @foreach($performances as $performance)
