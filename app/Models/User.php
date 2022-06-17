@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Like::class);
     }
+
+    public function markers()
+    {
+        return $this->hasMany(Marker::class);
+    }
 }

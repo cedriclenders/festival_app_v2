@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
@@ -10,12 +11,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 
+
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -51,12 +53,15 @@
     
 
 </div>  
-    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    
+    <script type="text/javascript" src="{{ asset('js/costum.js') }}"></script>
+
     <script>
         localStorage.setItem("vapid_public_key", "{{ env('VAPID_PUBLIC_KEY') }}"); 
     </script>
-    <script type="text/javascript" src="{{ asset('js/costum.js') }}"></script>
-    
+    @yield('scripts') 
 </body>
 
 </html>

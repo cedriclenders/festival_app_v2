@@ -4,6 +4,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PerformanceController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\PushController;
+use App\Http\Controllers\MarkerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,9 +38,22 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/likes', [PerformanceController::class, 'getAllLikes']);
 
         Route::post('/push', [PushController::class,'store']);
+        Route::get('/markers', function () {
+            return view('livemap');
+        });
+
+        Route::get('/getMarkerData', [MarkerController::class, 'getMarkerData']);
+        Route::post('/store-marker', [MarkerController::class, 'add']);
+        
+
+        Route::get('add-marker', function () {
+            return view('add-marker');
+        });
+        
     });
 
    
+
 });
 
 

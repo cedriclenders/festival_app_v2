@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app').val
 
 @section('content')
 <div class="header header-fixed header-logo-center">
@@ -87,8 +87,4 @@
     @endif 
 </div> 
 
-<script>
-
-    
-</script>
 @endsection

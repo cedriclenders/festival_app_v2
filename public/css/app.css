@@ -491,6 +491,9 @@ body {
   padding-top: 12px;
   position: relative;
   flex: 1 1 auto;
+  flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
 }
 #footer-bar a span {
   position: relative;
@@ -4702,6 +4705,12 @@ input[type=number] {
 /*Map Full*/
 .map {
   height: 200px;
+}
+.map-fullscreen {
+  height: 65vh;
+}
+.map-half {
+  height: 35vh;
 }
 .map-full .card-overlay {
   transition: all 350ms ease;
