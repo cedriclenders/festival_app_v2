@@ -21,5 +21,11 @@ class StageController extends Controller
        return view('stage')->with('stage', $stage);
    }
 
+   public function getStages()
+   {
+        $stages = Stage::all();
+        return json_encode($stages);
+   }
+
    
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\PerformanceController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\PushController;
 use App\Http\Controllers\MarkerController;
+use App\Http\Controllers\StageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
         });
 
         Route::get('/getMarkerData', [MarkerController::class, 'getMarkerData']);
+        Route::get('/getStagesData', [StageController::class, 'getStages']);
+        
         Route::post('/store-marker', [MarkerController::class, 'add']);
         
 

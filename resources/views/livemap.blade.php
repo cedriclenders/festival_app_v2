@@ -16,5 +16,6 @@
 </div>
 @endsection
 @section('scripts')
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrQsfEb0xqDCxuElEgT9m-HmpwzO4_bAs&callback=init" async="false" defer ></script>
 @endsection

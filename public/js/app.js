@@ -60,6 +60,7 @@
     $("#formDaysFilter").change(function(){ 
         let amountOfDivs = $(this).children("option").length;
         let indexDay = $(this).children("option:selected").val();
+        
         for (let i= 0; i < amountOfDivs; i++) {
             if(i == indexDay)
             {
@@ -81,7 +82,16 @@
      const createMap = ({ lat, lng }) => {
         return new google.maps.Map(document.getElementById('map'), {
           center: { lat, lng },
-          zoom: 15
+          zoom: 17,
+          mapTypeId: google.maps.MapTypeId.ROADMAP, 
+          styles: [ 
+            { 
+              "featureType": "poi", 
+              "stylers": [ 
+                { "visibility": "off" } 
+              ] 
+            } 
+          ] 
         });
       };
       
@@ -94,9 +104,12 @@
        * @return {Object}
        */
       const createMarker = ({ map, position, icon, title }) => {
-        return new google.maps.Marker({ map, position, icon, title });
+        return new google.maps.Marker({ map, position, icon, title});
       };
-      
+
+      const createMarkerWithLabel = ({ map, position, title, label }) => {
+        return new google.maps.Marker({ map, position, title, label});
+      };
       /**
        * Track the user location.
        * @param {Object} onSuccess
@@ -153,19 +166,55 @@
             });
     
         function initialize(results) { 
+         
             const initialPosition = { lat: 59.32, lng: 17.84 };
-            const image = "icons/walking.gif";
+            
             const map = createMap(initialPosition);
+
+          
             var marker = createMarker({ 
-                map, position: initialPosition, icon: image, title: "Test", 
+                map, position: initialPosition, icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  scale: 10,
+                  fillOpacity: 1,
+                  strokeWeight: 3,
+                  fillColor: '#5384ED',
+                  strokeColor: '#ffffff',
+                }, title: "Test", 
+                
             });
+
+            
+
+           
             results = JSON.parse(results);
             for(var i = 0; i < results.length; i++) {
                 var resultPosition = { lat: results[i].lat, lng: results[i].long };
                 this["marker"+i] = createMarker({ 
-                    map, position: resultPosition, icon: results[i].emoji_path, title: results[i].name, 
+                    map, position: resultPosition, icon: results[i].emoji_path, title: results[i].name,
                 });
            }
+
+           $.ajax(
+            {
+                url: "/getStagesData",
+                type: 'GET',
+                dataType: 'text',
+                success: function (results) {
+                  results = JSON.parse(results);
+                  for(var i = 0; i < results.length; i++) {
+                      var resultPosition = { lat: parseFloat(results[i].lat), lng: parseFloat(results[i].long) };
+                      this["marker"+i] = createMarkerWithLabel({ 
+                          map, position: resultPosition,title: results[i].name,label: {
+                            text: results[i].name,
+                            fontSize: '18px',
+                            color: "#222222",
+                          },  
+                      });
+                 }
+                
+                }
+            });
         
         const $long = document.getElementById('long-coordinate');
         const $lat = document.getElementById('lat-coordinate');

@@ -29,6 +29,6 @@ class MarkerController extends Controller
        $marker->lat = $request['lat'];
        $marker->save();
 
-       return redirect('/live-map');
+       return redirect('/markers');
     }
 }
