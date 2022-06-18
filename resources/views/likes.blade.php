@@ -6,7 +6,24 @@
         <a href="/" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
         <a href="#" data-toggle-theme class="header-icon header-icon-4"><i class="fas fa-lightbulb"></i></a>
     </div>
-    <div class="page-content header-clear-medium">
+    
+    
+        @if(Auth::user()->likes()->count() == 0)
+        <div class="page-content header-clear-medium">
+        <div class="card" data-card-height="cover">
+            <div class="card-center text-center">
+                <div class="content me-5 ms-5 mb-0">
+                    <i class="fa-solid fa-heart-crack fa-10x color-red-dark"></i>
+                    <h1 class="mt-5 mb-0 font-30 mb-2"> No likes yet</h1>
+                    <p class="boxed-text-xl">
+                      Make your own schedule and get the latest news from the artists you like.
+                    </p>
+                    <a href="/performances" data-back-button class="btn scale-box btn-m mt-5 btn-center-l rounded-l shadow-xl bg-highlight font-800 text-uppercase">Performances</a>
+                </div>
+            </div>
+        </div>
+        @else
+        <div class="page-content header-clear-large">
         <div class="card card-style">
             <div class="content">
             @foreach($festival->days() as $day)
@@ -43,5 +60,7 @@
         @endforeach
              </div>
         </div>
+        @endif
     </div>
+    
 @endsection

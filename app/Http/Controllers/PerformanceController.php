@@ -12,18 +12,9 @@ class PerformanceController extends Controller
 {
     //
 
-    public function getLikes()
-    {
-        $likes = Performance::find(1)->likes;
-        foreach ($likes as $like)
-        {
-            echo($like->user_id);
-        }
-    }
-
     public function getAll()
     {
-        $performances = Performance::all();
+        $performances = Performance::orderBy(Timeslot::select('start_datetime')->whereColumn('timeslots.id', 'timeslot_id')->orderBy('timeslots.start_datetime', 'asc'))->get();
         
         return view('performances', ['performances' => $performances]);
     }
@@ -36,7 +27,8 @@ class PerformanceController extends Controller
 
     public function getAllLikes()
     {
-        $performances = Performance::all();
+        $performances = Performance::orderBy(Timeslot::select('start_datetime')->whereColumn('timeslots.id', 'timeslot_id')->orderBy('timeslots.start_datetime', 'asc'))->get();
+
         
         return view('likes', ['performances' => $performances]);
     }

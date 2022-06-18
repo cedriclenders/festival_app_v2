@@ -1,4 +1,4 @@
-@extends('layouts.app').val
+@extends('layouts.app')
 
 @section('content')
 <div class="header header-fixed header-logo-center">

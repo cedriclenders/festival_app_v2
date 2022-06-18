@@ -28,8 +28,8 @@ class Festival extends Model
 
     public function days()
     {
-        $startDate = Carbon::parse($this->attributes['start_datetime'])->format('Y-m-d');
-        $endDate = Carbon::parse($this->attributes['end_datetime'])->format('Y-m-d');
+        $startDate = Carbon::parse($this->attributes['start_date'])->format('Y-m-d');
+        $endDate = Carbon::parse($this->attributes['end_date'])->format('Y-m-d');
         $dateRange = CarbonPeriod::create($startDate, $endDate);
         return $dateRange->toArray();
     }
