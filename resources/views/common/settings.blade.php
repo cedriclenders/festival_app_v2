@@ -14,11 +14,21 @@
                     <i class="fa fa-angle-right"></i>
                 </a>    
             </div>
+           
             <div class="list-group list-custom-small">
-                <a href="logout" data-toggle-theme data-trigger-switch="switch-dark-mode" class="pb-2 ms-n1">
-                    <i class="fa font-12 fa-sign-out rounded-s bg-highlight color-white me-3"></i>
-                    <span>Log out</span>   
-                </a>    
+                
+                {{-- <a class="btn btn-primary" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                    </a> --}}
+                    
+                    <a href="{{ route('logout') }}" class="pb-2 ms-n1" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fa font-12 fa-sign-out rounded-s bg-highlight color-white me-3"></i>
+                        <span>Log out</span>   
+                    </a>  
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>  
             </div>
         </div>
     </div>
