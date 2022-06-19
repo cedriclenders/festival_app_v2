@@ -37,7 +37,7 @@ class PushController extends Controller
     }
 
     public function push(){
-        Notification::send(User::find(1)->get(),new PushDemo);
+        Notification::send(User::all(),new PushDemo);
         return redirect()->back();
     }
 
