@@ -45,7 +45,7 @@
                             <div class="card card-style">
                                 <div data-card-height="200" class="card shadow-l mb-0" 
                                 @if($performance->performer->photos->count())
-                                style="background-image: url('{{ config('admin.admin_url') }}{{ $performance->performer->photos->first()->path }}')"
+                                style="background-image: url('{{ config('admin.admin_url') }}storage/{{ $performance->performer->photos->first()->path }}')"
                                 @endif>
                                     
                                     <div class="card-top m-3">

@@ -13,7 +13,7 @@
                         <div class="splide__slide">
                             <div class="card rounded-m shadow-l mx-3">
                                 <div class="card-overlay bg-gradient"></div>
-                                <img class="img-fluid" src="{{ config('admin.admin_url') }}{{ $photo->path }}">
+                                <img class="img-fluid" src="{{ config('admin.admin_url') }}storage/{{ $photo->path }}">
                             </div>
                         </div>
                     @endforeach
