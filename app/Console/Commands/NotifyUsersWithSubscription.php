@@ -57,7 +57,7 @@ class NotifyUsersWithSubscription extends Command
             }
 			$this->comment("Sending {$performance->performer->name} notifications");
             Notification::send($performance->likers,new PushStartingSoon($performance));
-
+            $this->comment("ben hier");
             $this->notificationSent++;
             $performance->rememberHasBeenSentPerformanceStartingSoon();
 
