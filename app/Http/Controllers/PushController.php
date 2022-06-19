@@ -7,7 +7,7 @@ use App\Notifications\PushStartingSoon;
 use App\Notifications\PushDemo;
 use App\Models\User;
 use Auth;
-use Notification;
+use Illuminate\Support\Facades\Notification;
 
 class PushController extends Controller
 {
