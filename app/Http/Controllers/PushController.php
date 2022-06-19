@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Notifications\PushStartingSoon;
+use App\Notifications\PushDemo;
 use App\Models\User;
 use Auth;
 use Notification;
@@ -33,6 +34,11 @@ class PushController extends Controller
         $user = Auth::user();
         $user->updatePushSubscription($endpoint, $key, $token);
         return response()->json(['success' => true],200);
+    }
+
+    public function push(){
+        Notification::send(User::all(),new PushDemo);
+        return redirect()->back();
     }
 
 }

@@ -24,7 +24,7 @@ class NotifyUsersWithSubscription extends Command
      *
      * @var string
      */
-    protected $description = 'Send Push notification to all users that liked a perfomance when it starts soon';
+    protected $description = 'Send Push notification to all users that liked a performance when it starts soon';
 
     protected $notificationSent = 0;
 
@@ -57,7 +57,6 @@ class NotifyUsersWithSubscription extends Command
             }
 			$this->comment("Sending {$performance->performer->name} notifications");
             Notification::send($performance->likers,new PushStartingSoon($performance));
-            $this->comment("ben hier");
             $this->notificationSent++;
             $performance->rememberHasBeenSentPerformanceStartingSoon();
 
