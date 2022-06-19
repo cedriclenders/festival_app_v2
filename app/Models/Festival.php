@@ -18,7 +18,12 @@ class Festival extends Model
 
     public function photos()
     {
-        return $this->hasMany(Photo::class);
+        return $this->hasMany(Photo::class)->where('is_app_icon','=',0);
+    }
+
+    public function icons()
+    {
+        return $this->hasMany(Photo::class)->where('is_app_icon','=',1);
     }
 
     public function stages()
