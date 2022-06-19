@@ -42,7 +42,7 @@
                                 <div class="align-self-center">
                                     <img
                                     @if($performance->performer->photos->count()) 
-                                    src="{{ config('admin.admin_url') }}{{ $performance->performer->photos->first()->path }}" 
+                                    src="{{ config('admin.admin_url') }}storage/{{ $performance->performer->photos->first()->path }}" 
                                     @endif
                                     class="rounded-sm fit" width="50" height="50">
                                 </div>
