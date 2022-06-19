@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="header header-fixed header-logo-center">
-        <a class="header-title">{{$festival->name}}</a>
+        <h2 class="header-title" style="font-size: 20px;">{{$festival->name}}</h2>
         <a href="#" data-toggle-theme class="header-icon header-icon-4"><i class="fas fa-lightbulb"></i></a>
     </div>
 
