@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-use App\Models\Performance;
+use App\Models\CustomNotification;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,21 +11,21 @@ use NotificationChannels\WebPush\WebPushMessage;
 use NotificationChannels\WebPush\WebPushChannel;
 
 
-class PushStartingSoon extends Notification
+class PushCustom extends Notification
 {
     use Queueable;
 
     /** @var \App\Performance */
-    public $performance;
+    public $customNotification;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Performance $performance)
+    public function __construct(CustomNotification $customNotification)
     {
         //
-        $this->performance = $performance;
+        $this->customNotification = $customNotification;
     }
 
     /**
@@ -69,8 +69,8 @@ class PushStartingSoon extends Notification
     public function toWebPush($notifiable, $notification)
     {
         return (new WebPushMessage)
-            ->title($this->performance->performer->name.' starting soon')
-            ->body($this->performance->performer->name.' is starting in 10 minutes at '. $this->performance->stage->name)
+            ->title($this->customNotification->title)
+            ->body($this->customNotification->description)
             ->action('View App', 'notification_action');
     }
 }

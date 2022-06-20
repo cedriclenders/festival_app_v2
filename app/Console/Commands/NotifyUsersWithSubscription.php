@@ -45,7 +45,7 @@ class NotifyUsersWithSubscription extends Command
         $this->info("{$this->notificationSent} performances starting notifications sent!");
 
         if ($this->notificationFailures > 0) {
-            $this->error("Failed to send {$this->notificationFailures} trial expiring mails!");
+            $this->error("Failed to send {$this->notificationFailures} notifications!");
          }
     }
 
