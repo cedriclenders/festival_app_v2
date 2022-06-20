@@ -2,7 +2,7 @@
     <!-- Install Prompt for Android -->
     <div id="menu-install-pwa-android" class="menu menu-box-bottom menu-box-detached rounded-l">
         <div class="boxed-text-l mt-4 pb-3">
-            <img class="rounded-l mb-3" src="/icons/icon-128x128.png" alt="img" width="90">
+            {{-- <img class="rounded-l mb-3" src="/icons/icon-128x128.png" alt="img" width="90"> --}}
             
             <h4 class="mt-3">Add {{$festival->name}} on your Home Screen</h4>
              <p>
@@ -20,7 +20,7 @@
         class="menu menu-box-bottom menu-box-detached rounded-l">
         <div class="boxed-text-xl mt-4 pb-3">
             
-            <img class="rounded-l mb-3" src="/icons/icon-128x128.png" alt="img" width="90">
+            {{-- <img class="rounded-l mb-3" src="/icons/icon-128x128.png" alt="img" width="90"> --}}
             <h4 class="mt-3">Add {{$festival->name}} on your home screen</h4>
             <p class="mb-0 pb-0">
                 Install the {{ $festival->name }} app, and access it like a regular app. Tap <img src="/icons/safari-share.png" width="16px"> and then "Add to Home Screen".
