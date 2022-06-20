@@ -3,6 +3,7 @@
 @section('content')
     <div class="header header-fixed header-logo-center">
         <a class="header-title">{{$performance->performer->name}}</a>
+        <a href="/performances" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
         <a href="#" data-toggle-theme class="header-icon header-icon-4"><i class="fas fa-lightbulb"></i></a>
     </div>
     <div class="page-content header-clear-medium">

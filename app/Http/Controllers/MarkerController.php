@@ -24,6 +24,7 @@ class MarkerController extends Controller
        $marker = new Marker;
        $marker->name = $request['name'];
        $marker->user_id = Auth::user()->id;
+       $marker->is_admin = false;
        $marker->emoji_path = $request['icon'];
        $marker->long = $request['long'];
        $marker->lat = $request['lat'];
