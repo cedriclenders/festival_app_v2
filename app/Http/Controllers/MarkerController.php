@@ -15,7 +15,7 @@ class MarkerController extends Controller
     public function getMarkerData()
     {
         $markers = auth()->user()->markers;
-        
+        $markers->push(Marker::all()->where('is_admin', true));
         return json_encode($markers);
     }
 

@@ -149,9 +149,6 @@
        * Automatically called by the google maps API once it's loaded.
       */
     
-    
-    
-    
      function init() {
     
         $.ajax(
@@ -183,9 +180,6 @@
                 }, title: "Test", 
                 
             });
-
-            
-
            
             results = JSON.parse(results);
             for(var i = 0; i < results.length; i++) {
