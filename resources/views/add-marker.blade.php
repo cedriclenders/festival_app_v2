@@ -17,11 +17,10 @@
                 @csrf
             <div class="input-style input-style-always-active has-borders has-icon validate-field">
                 <i class="fa fa-user font-12"></i>
-                <input type="text" id="name" name="name" class="form-control" placeholder="Name Marker">
+                <input type="text" id="name" name="name" class="form-control" placeholder="Name Marker" required>
                 <label for="name" class="color-blue-dark font-13">Name</label>
                 <i class="fa fa-times disabled invalid color-red-dark"></i>
                 <i class="fa fa-check disabled valid color-green-dark"></i>
-                <em>(required)</em>
             </div>
             <div class="input-style input-style-always-active has-borders validate-field">
                 <select name="icon" id="icon">
@@ -38,8 +37,8 @@
                 <i class="fa fa-check disabled valid color-green-dark"></i>
                 <em>(required)</em>
             </div>
-            <input style="display:none" type="text" id="long-coordinate" name="long" class="form-control">
-            <input style="display:none" type="text" id="lat-coordinate" name="lat" class="form-control">
+            <input style="display:none" type="text" id="long-coordinate" name="long" class="form-control" required>
+            <input style="display:none" type="text" id="lat-coordinate" name="lat" class="form-control" required>
             <button  type="submit" class="btn btn-full bg-green-dark btn-m text-uppercase rounded-sm shadow-l mb-3 mt-4 font-900">Save Costum Marker</button>
             </form>
         </div>

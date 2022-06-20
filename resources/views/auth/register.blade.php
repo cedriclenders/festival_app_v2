@@ -44,7 +44,7 @@
                 </div>
                 <div class="input-style no-borders has-icon validate-field mt-2">
                     <i class="fa fa-lock"></i>
-                    <input type="password-confirm" type="password" name="password_confirmation" class="form-control validate-text" id="password-confirm" placeholder="Confirm your Password">
+                    <input  type="password" name="password_confirmation" class="form-control validate-text" id="password-confirm" placeholder="Confirm your Password">
                     <label for="form3a1" class="color-blue-dark font-10 mt-1">Confirm your Password</label>
                     <i class="fa fa-times disabled invalid color-red-dark"></i>
                     <i class="fa fa-check disabled valid color-green-dark"></i>
