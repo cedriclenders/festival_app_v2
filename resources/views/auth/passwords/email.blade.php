@@ -1,6 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.unsigned-app')
 
 @section('content')
+
+<div class="content">
+    <div class="header header-fixed header-logo-center">
+        <a class="header-title">Change password</a>
+        <a href="/login" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+    </div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -43,5 +49,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
