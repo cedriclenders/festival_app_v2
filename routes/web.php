@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['middleware' => ['role:Admin']], function () {
         Route::get('/performances', [PerformanceController::class, 'getAll']);
         Route::get('/performance/{id}', [PerformanceController::class, 'get']);
         Route::get('/', function () {
@@ -52,11 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('add-marker', function () {
             return view('add-marker');
-        });
-        
-    });
-
-   
+        });  
 
 });
 
