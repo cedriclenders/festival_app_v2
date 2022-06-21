@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+Route::post('/push', [PushController::class,'store']);
 
 Route::group(['middleware' => 'auth'], function () {
         Route::get('/performances', [PerformanceController::class, 'getAll']);
@@ -37,8 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/likes', [PerformanceController::class, 'getAllLikes']);
 
-        Route::post('/push', [PushController::class,'store']);
-        Route::get('/push', [PushController::class,'push'])->name('push');
+       
         Route::get('/markers', function () {
             return view('livemap');
         });
