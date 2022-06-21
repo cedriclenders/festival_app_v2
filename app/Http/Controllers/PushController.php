@@ -36,5 +36,9 @@ class PushController extends Controller
         return response()->json(['success' => true],200);
     }
 
+    public function push(){
+        Notification::send(User::all(), new PushDemo());
+        return redirect()->back();
+    }
 
 }
